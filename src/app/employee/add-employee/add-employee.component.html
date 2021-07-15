@@ -1,7 +1,6 @@
 <!-- add new Employee -->
-<div class="container">
-    <h1 class="text-center p-4 bg-success text-white"> Add Employee</h1>
-    <div class="row">
+<div class="container emp-container">
+    <div class="row p-3 my-4">
         <div class="col-12  p-1">
             <div class="alert m-2 alert-warning alert-dismissible fade show" role="alert" *ngIf="alert">
                 <strong>Hello Admin</strong> This Employee is Added...
@@ -9,7 +8,15 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form class="border m-2 p-4" (ngSubmit)="collectEmployee()" [formGroup]="addEmployee">  
+            <h3 class="text-center pt-2"><strong>Add Employee</strong></h3>
+            <hr>
+        </div>
+            
+            <div class="col-md-12 my-3 text-right mx-auto pull-right p-0" *ngIf="goToList">
+                <a type="button" class="btn btn-outline-primary px-5 m-2"  routerLink="/employee">Check List</a>
+
+            </div> 
+            <form class="border p-4" (ngSubmit)="collectEmployee()" [formGroup]="addEmployee">  
                 <div class="form-row">
                     <div class="mb-3 col-md-6">
                         <label for="name" class="form-label">Name</label>
@@ -60,6 +67,7 @@
                             <div *ngIf="f.picture.errors.required">Image Url  is required</div>
                         </div>
                     </div>
+    
                     <div class="col-md-6 pt-4">
                         <span class="mb-3">Select Gender</span>
                         <br>
@@ -81,11 +89,11 @@
                     </div>
                     <div class="col-12 text-center">
                         <hr>
-                        <button type="submit" class="btn btn-primary px-5" [disabled]="!addEmployee.valid" >Submit</button>
-                        <a type="button" class="btn btn-outline-primary px-5 m-2" *ngIf="goToList" routerLink="/employee">Check List</a>
+                        <button type="submit" class="btn btn-primary px-2 mx-2" [disabled]="!addEmployee.valid" >Submit</button>
+                <a routerLink="/employee" class="btn btn-primary  px-2 mx-2"> Cancel</a>
                     </div>
                 </div>
             </form>
-        </div>
+        <!-- </div> -->
     </div>
 </div>

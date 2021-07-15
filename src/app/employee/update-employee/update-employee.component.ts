@@ -10,15 +10,16 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class UpdateEmployeeComponent implements OnInit {
   alert:boolean=false;
+  goToEmp:boolean=false;
   collection={};
 
   updateEmployee=new FormGroup({
-    name: new FormControl('',Validators.required),
+    name: new FormControl('',[Validators.required, Validators.minLength(3)]),
     email:new FormControl('', Validators.required),
-    dept:new FormControl(''),
-    mobile:new FormControl(''),
-    gender:new FormControl(''),
-    picture:new FormControl('')
+    dept:new FormControl('',Validators.required),
+    mobile:new FormControl('',Validators.required),
+    gender:new FormControl('', Validators.required),
+    picture:new FormControl('', Validators.required)
   })
 
   constructor( private emp:EmployeeServiceService, private route:ActivatedRoute) { }
@@ -29,8 +30,6 @@ export class UpdateEmployeeComponent implements OnInit {
       
       console.log(result);
       this.collection=result;
-
-
       this.updateEmployee=new FormGroup({
         name: new FormControl(result['name']),
         email:new FormControl(result['email']),
@@ -46,7 +45,8 @@ export class UpdateEmployeeComponent implements OnInit {
     this.emp.updateResto(this.route.snapshot.params.id, this.updateEmployee.value).subscribe(()=>{
       console.log('Updated Information');
       this.alert=true;
-      this.updateEmployee.reset();   
+      this.updateEmployee.reset(); 
+      this.goToEmp=true;  
     })
   }
 
@@ -67,5 +67,7 @@ export class UpdateEmployeeComponent implements OnInit {
   }
   get name() {return this.updateEmployee.get('name')}
   get email() {return this.updateEmployee.get('email')}
+  get dept() {return this.updateEmployee.get('dept')}
+  get gender() {return this.updateEmployee.get('gender')}
   get mobile() {return this.updateEmployee.get('mobile')}
 }

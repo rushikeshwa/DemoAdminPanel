@@ -38,6 +38,15 @@ export class AddEmployeeComponent implements OnInit {
     }
     return true;
   }
+selectedFile=null;
+  // select Images
+  onFileSelected(event){
+    console.log(event);
+    this.selectedFile=event.target.files[0];
+  }
+  onUpload(){
+    this.emp
+  }
   
   // add employee api
   collectEmployee() {

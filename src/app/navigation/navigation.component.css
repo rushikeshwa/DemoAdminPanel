@@ -74,6 +74,10 @@
         .logo{
             width: 70%;
         }
+    .demo-header__toggle {
+      margin-left:13%;
+
+    }
       }
 
       .fa-user-circle-o{
