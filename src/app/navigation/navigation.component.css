@@ -54,7 +54,6 @@
       position: relative;
       width: 2rem;
       margin-left:3%;
-      /* border: none; */
       outline: none;
     }
       .demo-header__toggle:after {
