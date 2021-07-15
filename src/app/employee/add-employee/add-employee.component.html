@@ -1,0 +1,91 @@
+<!-- add new Employee -->
+<div class="container">
+    <h1 class="text-center p-4 bg-success text-white"> Add Employee</h1>
+    <div class="row">
+        <div class="col-12  p-1">
+            <div class="alert m-2 alert-warning alert-dismissible fade show" role="alert" *ngIf="alert">
+                <strong>Hello Admin</strong> This Employee is Added...
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form class="border m-2 p-4" (ngSubmit)="collectEmployee()" [formGroup]="addEmployee">  
+                <div class="form-row">
+                    <div class="mb-3 col-md-6">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" class="form-control" formControlName="name">
+                        <div *ngIf="f.name.touched && f.name.invalid" class="text-danger">
+                            <div *ngIf="f.name.errors.required">name is required</div>
+                            <div *ngIf="f.name.errors.minlenght">name should be 3 char</div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3 col-md-6">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" formControlName="email">
+                        <div *ngIf="f.email.touched && f.email.invalid" class="text-danger">
+                            <div *ngIf="f.email.errors.required">Email is required</div>
+                            <div *ngIf="f.email.errors.email">Please enter valid email</div>
+                        </div>
+                    </div>
+
+                    <div class=" mb-3 col-md-6 form-group">
+                        <label for="Department" class="form-label">Department</label>
+                        <select class="form-select form-control" aria-label="Default select example"
+                            formControlName="dept">
+                            <option value="Development" [selected]='true'>Select Department</option>
+                            <option value="Development">Development</option>
+                            <option value="Testing">Testing</option>
+                            <option value="Human_Resources">Human Resources</option>
+                            <option value="Management">Management</option>
+                            <option value="Designing">Designing</option>
+                            <option value="Digital_Marketing">Digital Marketing</option>
+                        </select>
+                    </div>
+                    <div class="mb-3 col-md-6">
+                        <label for="mobile" class="form-label">Mobile</label>
+                        <input type="tel" class="form-control" formControlName="mobile" (keypress)="keyPressNumbersDecimal($event)">
+                        <div *ngIf="f.mobile.touched &&  f.mobile.invalid" class="text-danger">
+                            <div *ngIf="f.mobile.errors.required">Please enter 10 digit mobile number</div>
+                            <div *ngIf="f.mobile.errors.invalid">Please enter valid mobile number</div>
+                            <div *ngIf="f.mobile.errors.min"> Please enter valid mobile number</div>
+
+                        </div>
+                        
+                    </div>
+                    <div class="mb-3 col-md-6">
+                        <label for="picture" class="form-label">Image Url</label>
+                        <input type="url" class="form-control" formControlName="picture">
+                        <div *ngIf="f.picture.touched && f.picture.invalid" class="text-danger">
+                            <div *ngIf="f.picture.errors.required">Image Url  is required</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 pt-4">
+                        <span class="mb-3">Select Gender</span>
+                        <br>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" formControlName="gender" id="male"
+                                value="male">
+                            <label class="form-check-label" for="male">Male</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" formControlName="gender" id="female"
+                                value="female">
+                            <label class="form-check-label" for="female">Female</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input"  type="radio" formControlName="gender" id="other"
+                                value="other" [checked]="true">
+                            <label class="form-check-label" for="other">Other</label>
+                        </div>
+                    </div>
+                    <div class="col-12 text-center">
+                        <hr>
+                        <button type="submit" class="btn btn-primary px-5" [disabled]="!addEmployee.valid" >Submit</button>
+                        <a type="button" class="btn btn-outline-primary px-5 m-2" *ngIf="goToList" routerLink="/employee">Check List</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

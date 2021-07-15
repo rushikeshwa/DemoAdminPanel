@@ -1,0 +1,17 @@
+left side bar:
+ex employee
+update and edit 
+add new emp
+list
+
+mob no validation 
+email validation
+form control
+alli inpput included,
+
+routering nedd to propper
+\\
+ng add @ng-bootstrap/ng-bootstrap --save
+ng add bootstrap --save
+
+https://codepen.io/venkataramanam/pen/yLMQgew

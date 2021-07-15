@@ -1,0 +1,63 @@
+<!-- sidebar start here -->
+<ng-sidebar-container (onBackdropClicked)="_onBackdropClicked()">
+  <ng-sidebar [(opened)]="_opened" [mode]="_MODES[_modeNum]" [keyClose]="_keyClose"
+    [position]="_POSITIONS[_positionNum]" 
+    
+    [autoCollapseHeight]="_autoCollapseHeight" [autoCollapseWidth]="_autoCollapseWidth"
+    [closeOnClickOutside]="_closeOnClickOutside" [closeOnClickBackdrop]="_closeOnClickBackdrop"
+    [showBackdrop]="_showBackdrop" [animate]="_animate" 
+    >
+
+    <img class="logo" src="../../assets/img/rushi logo.png" alt="Logo"><br>
+    <hr class="hr-close-logo">
+    <ul class="link-aside">
+      <li><a routerLink=""> Home</a></li>
+      <li><a routerLink="/employee"> List Employee</a></li>
+      <li><a routerLink="/employee/add-emp"> Add Employee</a></li>
+      <li><a routerLink=""> Other</a></li>
+      <li><a routerLink=""> Other</a></li>
+      <li><a routerLink=""> Other</a></li>
+      <li><a routerLink=""> Other</a></li>
+    </ul>
+
+  </ng-sidebar>
+<!-- sidebar ends here -->
+
+  <div ng-sidebar-content>
+<!-- header content start -->
+    <header class="demo-header">
+      <button (click)="_toggleOpened()" class="demo-header__toggle">Toggle sidebar</button>
+      <nav class="navbar navbar-expand-lg navbar-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse text-white" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto ">
+            <li class="nav-item active">
+              
+            </li>
+            
+          </ul>
+          <div class="form-inline my-2 my-lg-0">
+            <button class="btn text-white my-2 my-sm-0" type="submit">
+              <i class="fa fa-user-circle-o " aria-hidden="true" ></i>
+            </button>
+          </div>
+          <!-- <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          </form> -->
+        </div>
+      </nav>
+    </header>
+<!-- header content start -->
+
+    <section class="demo-contents">
+      
+      <router-outlet></router-outlet>
+
+    </section>
+  </div>
+</ng-sidebar-container>
+<!-- main sidebar ends  -->

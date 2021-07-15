@@ -1,0 +1,82 @@
+::selection {
+    background-color:var(--primary);
+    color: var(--color-white);
+  }
+  
+  a {
+    color: var(--color-white1);
+    text-decoration: none;
+  }
+  
+  .navbar{
+    width: 100%;
+    padding: 0;
+  }
+  ::ng-deep aside {
+    background-color: var(--primary);
+    padding: 0rem 1em;
+  }
+  .link-aside  li{
+    text-decoration: none;
+    list-style-type: none;
+    padding: 9% 0 9% 0;
+
+  }
+  .link-aside li a{
+    outline: none;
+    border: none;
+  }
+
+  .hr-close-logo{
+        border-top: 1px solid rgba(255, 255, 255, 0.295);
+  }
+  
+  .demo-header {
+    align-items: center;
+    background: var(--primary);
+    color: var(--color-white);
+    display: flex;
+    padding: 1em;
+    outline: none;
+    border: none;
+    overflow: hidden;
+  }
+  
+    .demo-header__toggle {
+      background: transparent;
+      border: 0.15rem solid var(--color-white);
+      border-left: 0;
+      border-right: 0;
+      cursor: pointer;
+      font-size: 0;
+      height: 1.5rem;
+      margin-right: 1rem;
+      position: relative;
+      width: 2rem;
+      margin-left:3%;
+      /* border: none; */
+      outline: none;
+    }
+      .demo-header__toggle:after {
+        background: var(--color-white);
+        content: '';
+        height: 0.15rem;
+        left: 0;
+        margin-top: -0.075rem;
+        position: absolute;
+        top: 50%;
+        width: 100%;
+      }
+    
+  .demo-contents {
+    padding: 0 2em;
+  }
+    @media only screen and (max-width: 600px) {
+        .logo{
+            width: 70%;
+        }
+      }
+
+      .fa-user-circle-o{
+        font-size: 23px;
+      }
