@@ -1,3 +1,5 @@
+
+/* navigation bar Css strat` */
 ::selection {
     background-color:var(--primary);
     color: var(--color-white);
@@ -83,3 +85,5 @@
       .fa-user-circle-o{
         font-size: 23px;
       }
+/* navigation bar Css End` */
+  

@@ -10,8 +10,11 @@ import { EmployeeServiceService } from 'src/app/shared/services/employee-service
 })
 export class AddEmployeeComponent implements OnInit {
 
+  // variable declaration
   alert: boolean = false;
   goToList:boolean=false;
+
+// form group
   addEmployee = new FormGroup({
     dept: new FormControl(''),
     gender: new FormControl('',),
@@ -38,15 +41,7 @@ export class AddEmployeeComponent implements OnInit {
     }
     return true;
   }
-selectedFile=null;
-  // select Images
-  onFileSelected(event){
-    console.log(event);
-    this.selectedFile=event.target.files[0];
-  }
-  onUpload(){
-    this.emp
-  }
+  
   
   // add employee api
   collectEmployee() {
@@ -57,10 +52,10 @@ selectedFile=null;
       this.goToList=true;
     })
   }
+  // Form Validaiton start here
   get f() {
     return this.addEmployee.controls;
   }
-
 
   get name() { return this.addEmployee.get('name') }
   get email() { return this.addEmployee.get('email') }

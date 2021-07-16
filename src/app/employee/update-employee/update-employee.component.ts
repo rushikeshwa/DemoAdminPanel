@@ -13,6 +13,7 @@ export class UpdateEmployeeComponent implements OnInit {
   goToEmp:boolean=false;
   collection={};
 
+  // update employee form declaration
   updateEmployee=new FormGroup({
     name: new FormControl('',[Validators.required, Validators.minLength(3)]),
     email:new FormControl('', Validators.required),
@@ -25,6 +26,7 @@ export class UpdateEmployeeComponent implements OnInit {
   constructor( private emp:EmployeeServiceService, private route:ActivatedRoute) { }
 
   ngOnInit() {
+    // get current employee id for update
     console.log(this.route.snapshot.params.id);
     this.emp.getCurrentEmp(this.route.snapshot.params.id).subscribe((result)=>{
       
@@ -41,6 +43,7 @@ export class UpdateEmployeeComponent implements OnInit {
     });
   }
   
+  // update employee information
   updateEmployeeInfo(){
     this.emp.updateResto(this.route.snapshot.params.id, this.updateEmployee.value).subscribe(()=>{
       console.log('Updated Information');
@@ -50,7 +53,7 @@ export class UpdateEmployeeComponent implements OnInit {
     })
   }
 
-  // Only Numbers with Decimals
+  // Only Numbers with Decimals for mobile validation
   keyPressNumbersDecimal(event) {
     var charCode = (event.which) ? event.which : event.keyCode;
     if (charCode != 46 && charCode > 31
@@ -61,7 +64,7 @@ export class UpdateEmployeeComponent implements OnInit {
     return true;
   }
   
-
+// form validation
   get f(){
     return this.updateEmployee.controls;
   }

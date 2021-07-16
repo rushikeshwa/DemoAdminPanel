@@ -8,6 +8,7 @@ import{ EmployeeServiceService} from '../shared/services/employee-service.servic
 })
 export class EmployeeComponent implements OnInit {
 
+  // variable declaration for pagignation
   delete:boolean=false;
   collection: any;
   totalRecords:string;
@@ -17,6 +18,7 @@ export class EmployeeComponent implements OnInit {
   constructor(private emp : EmployeeServiceService) { }
 
   ngOnInit() {
+    // calling API to get List of all Employee
     this.emp.getList().subscribe((result)=>{
       this.collection = result;
       this.totalRecords=this.collection.result.length;

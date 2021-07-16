@@ -5,7 +5,7 @@
             <h3 class="text-center pt-2"><strong>Update data of : {{collection.name}}</strong></h3>
         <hr>
         </div>
-        
+        <!-- alert for updated employee -->
         <div class="col-md-12 p-1">
             <div class="alert alert-warning alert-dismissible fade show" role="alert" *ngIf="alert">
                 <strong>Hello Admin</strong> Details Updated please check...
@@ -15,8 +15,9 @@
             </div>
 
         </div>
-        <!--  -->
+        <!-- Form for update employees data -->
         <form (ngSubmit)="updateEmployeeInfo()" class="form-row p-3 " [formGroup]="updateEmployee">
+            <!-- name Field -->
             <div class="col-md-6 mb-3">
                 <label for="name" class="form-label">Name</label>
                 <input type="text" class="form-control" formControlName="name">
@@ -25,6 +26,7 @@
                     <div *ngIf="f.name.errors.minlenght">name should be 3 char</div>
                 </div>
             </div>
+            <!-- Department -->
 
             <div class=" mb-3 col-md-6 form-group">
                 <label for="Department" class="form-label">Department</label>
@@ -38,6 +40,8 @@
                     <option value="Digital_Marketing">Digital Marketing</option>
                 </select>
             </div>
+            <!-- Email -->
+
             <div class="mb-3 col-md-6">
                 <label for="email" class="form-label">Email</label>
                 <input type="email" class="form-control" formControlName="email">
@@ -45,6 +49,7 @@
                     <p *ngIf="f.email.errors.required">Please enter Valid Name</p>
                 </div>
             </div>
+            <!-- Mobile -->
             <div class="mb-3 col-md-6">
                 <label for="mobile" class="form-label">Mobile</label>
                 <input type="tel" class="form-control" formControlName="mobile"
@@ -53,10 +58,12 @@
                     <div *ngIf="f.mobile.errors.required">Please enter 10 digit mobile number</div>
                 </div>
             </div>
+            <!-- Image URL -->
             <div class="mb-3 col-md-6">
                 <label for="picture" class="form-label">Image Url</label>
                 <input type="url" class="form-control" formControlName="picture">
             </div>
+            <!-- Gender -->
             <div class="col-md-6 pt-4">
                 <span class="mb-3">Select Gender</span>
                 <br>
