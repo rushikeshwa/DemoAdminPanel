@@ -1,0 +1,33 @@
+<ion-item [formGroup]="group">
+
+    <ion-label *ngIf="model.label !== null"
+               [innerHTML]="model.label"
+               [ngClass]="[getClass('element', 'label'), getClass('grid', 'label')]"></ion-label>
+
+    <ion-datetime #ionDatetime
+                  [cancelText]="model.getAdditional('cancelText', 'Cancel')"
+                  [dayNames]="model.getAdditional('dayNames', undefined)"
+                  [dayShortNames]="model.getAdditional('dayShortNames', undefined)"
+                  [dayValues]="model.getAdditional('dayValues', undefined)"
+                  [displayFormat]="model.format || 'MMM D, YYYY'"
+                  [doneText]="model.getAdditional('doneText', 'Done')"
+                  [formControlName]="model.id"
+                  [hourValues]="model.getAdditional('hourValues', undefined)"
+                  [id]="id"
+                  [max]="model.max || undefined"
+                  [min]="model.min || undefined"
+                  [minuteValues]="model.getAdditional('minuteValues', undefined)"
+                  [monthNames]="model.getAdditional('monthNames', undefined)"
+                  [monthShortNames]="model.getAdditional('monthShortNames', undefined)"
+                  [monthValues]="model.getAdditional('monthValues', undefined)"
+                  [ngClass]="getClass('element', 'control')"
+                  [pickerFormat]="model.getAdditional('pickerFormat', 'MMM D, YYYY')"
+                  [pickerOptions]="model.getAdditional('pickerOptions', undefined)"
+                  [placeholder]="model.placeholder"
+                  [yearValues]="model.getAdditional('yearValues', undefined)"
+                  (ionBlur)="onBlur($event)"
+                  (ionCancel)="onCustomEvent($event, 'ionCancel')"
+                  (ionChange)="onChange($event)"
+                  (ionFocus)="onFocus($event)"></ion-datetime>
+
+</ion-item>

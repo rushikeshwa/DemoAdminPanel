@@ -1,0 +1,27 @@
+<!-- Dummy Home Admin Panel -->
+<div class="px-4 py-5 my-5 text-center">
+  <img class="mx-auto mb-4 " src="../../assets/img/rushi logo.png" alt="">
+  <h1 class="display-5 fw-bold">Welcome to Admin Pannel</h1>
+  <div class="col-lg-6 mx-auto">
+    <p class="lead mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic iusto ab natus officiis a nam
+      molestias quod omnis beatae aut est fugit mollitia ullam laborum quia veritatis, ex enim cumque soluta
+      repudiandae? Odit sequi, tempora modi ex inventore minima asperiores.</p>
+    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+      <a type="button" routerLink="/employee" class="btn btn-outline-primary btn-lg px-4 mx-1">Employees</a>
+
+    </div>
+  </div>
+
+  <form [formGroup]="myQueens">
+    <ng-container *ngFor="let formGroup of myQueens.controls ; let i=index;">
+
+      <div [formGroup]="formGroup">
+        <label for="name">Name</label>
+        <input type="text" formControlName="name">
+        <label for="seasons">seasons</label>
+        <input type="text" formControlName="season">
+        
+      </div>
+    </ng-container> 
+  </form>
+</div>
