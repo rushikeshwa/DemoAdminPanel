@@ -54,5 +54,6 @@ export class FormbuilderComponent implements OnInit {
         this.inputType.clear();
         this.profileForm.reset();
         // this.heroes.reset
+        // this.heroes.reset
     }
 }
