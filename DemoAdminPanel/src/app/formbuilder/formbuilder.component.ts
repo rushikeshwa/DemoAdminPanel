@@ -11,7 +11,9 @@ export class FormbuilderComponent implements OnInit {
     ngOnInit() {
 
     }
+    // variable declaration
     selectedOption = [];
+    label = [];
 
     options = [
         { name: "text" },
@@ -25,23 +27,25 @@ export class FormbuilderComponent implements OnInit {
 
     constructor(private formBuilder: FormBuilder) { }
 
+    // form group 
     profileForm = this.formBuilder.group({
         firstName: ['', Validators.required],
         lastName: [''],
         inputType: this.formBuilder.array([
-            // this.formBuilder.control('')
         ])
     });
 
+    // validation
     get inputType() {
         return this.profileForm.get('inputType') as FormArray;
     }
 
+    //submit form 
     onSubmit() {
         console.warn(this.profileForm.value);
     }
 
-    label = [];
+    // add label in input field
     addLabel(newLabel: string) {
         if (newLabel != null) {
             this.label.push(newLabel);
@@ -49,7 +53,7 @@ export class FormbuilderComponent implements OnInit {
             this.selectedOption.push();
         }
     }
-
+    // Reset all form 
     onReset() {
         this.inputType.clear();
         this.profileForm.reset();

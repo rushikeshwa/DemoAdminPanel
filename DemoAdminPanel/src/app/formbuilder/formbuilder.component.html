@@ -1,6 +1,9 @@
+<!-- Form Builder Demo -->
+
 <div class="container">
     <div class="card">
         <div class="card-header d-flex">
+            <!-- select the option for add input type and label -->
             <div class="form-group mx-4 d-flex">
                 <label for="inputTypeUser">InputType &nbsp; &nbsp;</label>
                 <select class="form-control" [(ngModel)]="selectedOption">
@@ -16,6 +19,7 @@
                 <button type="button" (click)="onReset()" class="btn btn-warning mx-3">Reset</button>
             </div>
         </div>
+        <!-- main form with two dummy field -->
         <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
             <p>Selected option: {{ selectedOption }}</p>
             <div class="form-group col-md-8 mx-auto">
@@ -24,6 +28,8 @@
                 <label for="last-name">Last Name: </label>
                 <input id="last-name" type="text" class="form-control" formControlName="lastName">
             </div>
+
+            <!-- formArray Name for create multiple field -->
             <div formArrayName="inputType">
                 <hr>
                 <h2> Your Selected Input Field</h2>
