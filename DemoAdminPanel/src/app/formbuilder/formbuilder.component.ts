@@ -2,67 +2,57 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-formbuilder',
-  templateUrl: './formbuilder.component.html',
-  styleUrls: ['./formbuilder.component.css']
+    selector: 'app-formbuilder',
+    templateUrl: './formbuilder.component.html',
+    styleUrls: ['./formbuilder.component.css']
 })
 export class FormbuilderComponent implements OnInit {
 
-  dynamicForm: FormGroup;
-  submitted = false;
+    ngOnInit() {
 
-  constructor(private formBuilder: FormBuilder) { }
-
-  ngOnInit() {
-    this.dynamicForm = this.formBuilder.group({
-      numberOfTickets: ['', Validators.required],
-      tickets: new FormArray([])
-  });
-  }
-
-  get f() { return this.dynamicForm.controls; }
-  get t() { return this.f.tickets as FormArray; }
-
-  
-  onChangeTickets(e) {
-    const numberOfTickets = e.target.value || 0;
-    if (this.t.length < numberOfTickets) {
-        for (let i = this.t.length; i < numberOfTickets; i++) {
-            this.t.push(this.formBuilder.group({
-                name: ['', Validators.required],
-                email: ['', [Validators.required, Validators.email]]
-            }));
-        }
-    } else {
-        for (let i = this.t.length; i >= numberOfTickets; i--) {
-            this.t.removeAt(i);
-        }
     }
-}
+    selectedOption = [];
 
-onSubmit() {
-    this.submitted = true;
+    options = [
+        { name: "text" },
+        { name: "email" },
+        { name: "password" },
+        { name: "date" },
+        { name: "file" },
+        { name: "url" },
+        { name: "number" }
+    ]
 
-    // stop here if form is invalid
-    if (this.dynamicForm.invalid) {
-        return;
+    constructor(private formBuilder: FormBuilder) { }
+
+    profileForm = this.formBuilder.group({
+        firstName: ['', Validators.required],
+        lastName: [''],
+        inputType: this.formBuilder.array([
+            // this.formBuilder.control('')
+        ])
+    });
+
+    get inputType() {
+        return this.profileForm.get('inputType') as FormArray;
     }
 
-    // display form values on success
-    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.dynamicForm.value, null, 4));
-}
+    onSubmit() {
+        console.warn(this.profileForm.value);
+    }
 
-onReset() {
-    // reset whole form back to initial state
-    this.submitted = false;
-    this.dynamicForm.reset();
-    this.t.clear();
-}
+    label = [];
+    addLabel(newLabel: string) {
+        if (newLabel != null) {
+            this.label.push(newLabel);
+            this.inputType.push(this.formBuilder.control(''));
+            this.selectedOption.push();
+        }
+    }
 
-onClear() {
-    // clear errors and reset ticket fields
-    this.submitted = false;
-    this.t.reset();
-}
-
+    onReset() {
+        this.inputType.clear();
+        this.profileForm.reset();
+        // this.heroes.reset
+    }
 }

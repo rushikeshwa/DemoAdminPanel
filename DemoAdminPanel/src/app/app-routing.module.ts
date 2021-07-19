@@ -7,7 +7,7 @@ const routes: Routes = [
   { path: '', pathMatch: "full", redirectTo: 'home' },
   {path:'', component:HomeComponent},
   { path: 'employee', loadChildren: () => import('./employee/employee.module').then(m => m.EmployeeModule) },
-  {path : 'formbuilder',component:FormbuilderComponent}
+  {path : 'formbuilder',component:FormbuilderComponent},
   
 ];
 

@@ -13,8 +13,6 @@ import { HomeComponent } from './home/home.component';
 import { SidebarModule } from 'ng-sidebar';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { FormbuilderComponent } from './formbuilder/formbuilder.component';
-import { CreateEmpComponent } from './empkud/create-emp/create-emp.component';
-import { LisEmpComponent } from './empkud/lis-emp/lis-emp.component';
 
 @NgModule({
   declarations: [
@@ -22,8 +20,7 @@ import { LisEmpComponent } from './empkud/lis-emp/lis-emp.component';
     NavigationComponent,
     HomeComponent,
     FormbuilderComponent,
-    CreateEmpComponent,
-    LisEmpComponent,
+
   ],
   imports: [
     BrowserModule,

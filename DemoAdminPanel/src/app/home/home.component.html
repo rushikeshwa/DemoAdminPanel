@@ -12,16 +12,4 @@
     </div>
   </div>
 
-  <form [formGroup]="myQueens">
-    <ng-container *ngFor="let formGroup of myQueens.controls ; let i=index;">
-
-      <div [formGroup]="formGroup">
-        <label for="name">Name</label>
-        <input type="text" formControlName="name">
-        <label for="seasons">seasons</label>
-        <input type="text" formControlName="season">
-        
-      </div>
-    </ng-container> 
-  </form>
 </div>
