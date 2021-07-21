@@ -50,14 +50,11 @@ export class FormbuilderComponent implements OnInit {
         if (newLabel != null) {
             this.label.push(newLabel);
             this.inputType.push(this.formBuilder.control(''));
-            this.selectedOption.push();
         }
     }
     // Reset all form 
     onReset() {
         this.inputType.clear();
         this.profileForm.reset();
-        // this.heroes.reset
-        // this.heroes.reset
     }
 }
