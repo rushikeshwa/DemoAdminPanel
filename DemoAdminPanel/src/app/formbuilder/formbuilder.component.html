@@ -2,46 +2,47 @@
 
 <div class="container">
     <div class="card">
-        <div class="card-header d-flex">
-            <!-- select the option for add input type and label -->
-            <div class="form-group mx-4 d-flex">
-                <label for="inputTypeUser">InputType &nbsp; &nbsp;</label>
-                <select class="form-control" [(ngModel)]="selectedOption">
-                    <option [selected]="true" *ngFor="let o of options">{{o.name}}</option>
-                </select>
-            </div>
-            <div class="form-group d-flex">
-                <label for="label">Enter&nbsp;Label &nbsp;&nbsp;</label>
-                <input type="text" class="form-control mx-1" #newLabel (keyup.enter)="addLabel(newLabel.value)">
-            </div>
-            <div>
-                <button (click)="addLabel(newLabel.value)" class="btn btn-primary ">Add</button>
-                <button type="button" (click)="onReset()" class="btn btn-warning mx-3">Reset</button>
-            </div>
-        </div>
-        <!-- main form with two dummy field -->
-        <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
-            <p>Selected option: {{ selectedOption }}</p>
-            <div class="form-group col-md-8 mx-auto">
-                <label for="first-name">First Name: </label>
-                <input id="first-name" class="form-control" type="text" formControlName="firstName" required>
-                <label for="last-name">Last Name: </label>
-                <input id="last-name" type="text" class="form-control" formControlName="lastName">
-            </div>
-
-            <!-- formArray Name for create multiple field -->
-            <div formArrayName="inputType">
-                <hr>
-                <h2> Your Selected Input Field</h2>
-                <div class="form-group col-md-8 mx auto" *ngFor="let alias of inputType.controls; let i=index">
-
-                    <label for="alias-{{ i }}" *ngFor="let labName of label">{{labName}}</label>
-                    <input id="alias-{{ i }}" class="form-control" type="{{ selectedOption }}" [formControlName]="i">
+        <!-- select the option for add input type and label -->
+        <form (ngSubmit)="addInputTypeLabel()" [formGroup]="addInputandLabel">
+            <div class="card-header d-flex">
+                <div class="form-group mx-4 d-flex">
+                    <label for="inputTypeUser">InputType &nbsp; &nbsp;</label>
+                    <select class="form-control" formControlName="inputTypeUser">
+                        <option [selected]="true" *ngFor="let option of options">{{option.name}}</option>
+                    </select>
+                </div>
+                <div class="form-group d-flex">
+                    <label for="label">Enter&nbsp;Label &nbsp;&nbsp;</label>
+                    <input type="text" class="form-control mx-1" formControlName="myLabel">
+                </div>
+                <!-- Add and Reset Input field -->
+                <div>
+                    <button type="submit" class="btn btn-primary ">Add</button>
+                    <button type="button" (click)="onReset()" class="btn btn-warning mx-3">Reset</button>
                 </div>
             </div>
-            <br>
-            <p>Complete the form to enable button.</p>
-            <button type="submit" class="btn btn-primary" [disabled]="!profileForm.valid">Submit</button>
         </form>
+
+        <!-- main form with Selected iput type and label -->
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+                <form [formGroup]="mainForm" (ngSubmit)="onSubmit()">
+                    <!-- formArray Name for create multiple field -->
+
+                    <div formArrayName="inputType">
+                        <h3 class="text-center" *ngIf="selectedField">Please Select Input Field and Label</h3>
+                        <div class="form-group" *ngFor=" let i=index; let data of dataArray">
+                            <label for="MyLabel">{{data.myLabel}}</label>
+                            <input id="input-Type" class="form-control" type="{{data.inputTypeUser}}"
+                                [formControlName]="i">
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary" [disabled]="!mainForm.valid"
+                            *ngIf="submitButton">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 </div>

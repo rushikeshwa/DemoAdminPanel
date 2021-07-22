@@ -50,6 +50,7 @@ export class AddEmployeeComponent implements OnInit {
       this.addEmployee.reset();
       this.alert = true;
       this.goToList=true;
+      // console.log(this.addEmployee.value);
     })
   }
   // Form Validaiton start here

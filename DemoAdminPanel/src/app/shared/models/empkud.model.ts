@@ -10,3 +10,12 @@ export class EmployeeKud{
     isActive:boolean;
     photoPath?:string;
 }
+
+export class FormBuildInput{
+    inputType:string;
+    label:string;
+    constructor(public inputTypeUser:string, public myLabel:string){
+        this.inputType=inputTypeUser;
+        this.label=myLabel;
+    }
+}

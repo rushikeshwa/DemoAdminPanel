@@ -1,20 +1,41 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, FormArray, Validators, FormControl } from '@angular/forms';
 
 @Component({
     selector: 'app-formbuilder',
     templateUrl: './formbuilder.component.html',
     styleUrls: ['./formbuilder.component.css']
 })
-export class FormbuilderComponent implements OnInit {
+export class FormbuilderComponent {
 
-    ngOnInit() {
-
-    }
     // variable declaration
-    selectedOption = [];
-    label = [];
+    selectedField: boolean = true;
+    submitButton: boolean = false
+    dataArray = [];
 
+
+    constructor(private formBuilder: FormBuilder) { }
+
+    // add input type and label form group
+    addInputandLabel = new FormGroup({
+        inputTypeUser: new FormControl(''),
+        myLabel: new FormControl('')
+    })
+    // Main form group where all dynamic field added 
+    mainForm = this.formBuilder.group({
+        inputType: this.formBuilder.array([])
+    });
+
+
+    // method to create new form field
+    addInputTypeLabel() {
+        this.dataArray.push(this.addInputandLabel.value);
+        this.inputType.push(this.formBuilder.control(''));
+        this.selectedField = false;
+        this.submitButton = true;
+    }
+
+    // input type option object array
     options = [
         { name: "text" },
         { name: "email" },
@@ -25,36 +46,20 @@ export class FormbuilderComponent implements OnInit {
         { name: "number" }
     ]
 
-    constructor(private formBuilder: FormBuilder) { }
-
-    // form group 
-    profileForm = this.formBuilder.group({
-        firstName: ['', Validators.required],
-        lastName: [''],
-        inputType: this.formBuilder.array([
-        ])
-    });
 
     // validation
     get inputType() {
-        return this.profileForm.get('inputType') as FormArray;
+        return this.mainForm.get('inputType') as FormArray;
     }
 
     //submit form 
     onSubmit() {
-        console.warn(this.profileForm.value);
+        console.warn(this.mainForm.value);
     }
 
-    // add label in input field
-    addLabel(newLabel: string) {
-        if (newLabel != null) {
-            this.label.push(newLabel);
-            this.inputType.push(this.formBuilder.control(''));
-        }
-    }
     // Reset all form 
     onReset() {
-        this.inputType.clear();
-        this.profileForm.reset();
+        this.addInputandLabel.reset();
+        this.mainForm.reset();
     }
 }
