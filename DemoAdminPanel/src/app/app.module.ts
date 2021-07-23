@@ -15,6 +15,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { FormbuilderComponent } from './formbuilder/formbuilder.component';
 import { ListEmpComponent } from './EmployeeKud/list-emp/list-emp.component';
 import { CreateEmpComponent } from './EmployeeKud/create-emp/create-emp.component';
+import { ImageSliderComponent } from './image-slider/image-slider.component';
+import { AngularMaterialModule } from './angular-material/angular-material.module';
+
 
 const appRoutes:Routes=[
   {path:'list-empkud',component:ListEmpComponent},
@@ -30,6 +33,7 @@ const appRoutes:Routes=[
     FormbuilderComponent,
     ListEmpComponent,
     CreateEmpComponent,
+    ImageSliderComponent,
 
   ],
   imports: [
@@ -43,6 +47,7 @@ const appRoutes:Routes=[
     FormsModule,
     SidebarModule.forRoot(),
     NgxPaginationModule,
+    AngularMaterialModule
 
   ],
   providers: [DatePipe],

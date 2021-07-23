@@ -44,6 +44,21 @@
       "picture": "scxsa",
       "name": "Rushiu",
       "id": 10
+    },
+    {
+      "dept": "Human_Resources",
+      "gender": "female",
+      "mobile": "9999999999",
+      "email": "swxdwxxdsdw@sss.xom",
+      "picture": "swwx",
+      "name": "rushikesh ware",
+      "id": 11
+    },
+    {
+      "id": 1,
+      "img": "../../assets/img/slider-1.jpg",
+      "caption": "This is Caption One",
+      "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae alias sapiente maxime commodi delectus odio inventore eius provident. Sunt, expedita?"
     }
   ],
   "comments": [
@@ -55,5 +70,17 @@
   ],
   "profile": {
     "name": "typicode"
-  }
+  },
+  "imageArray": [
+    {
+      "image": "https://www.geeklawblog.com/wp-content/uploads/sites/528/2018/12/liprofile-656x369.png",
+      "caption": "Test",
+      "id": 1
+    },
+    {
+      "image": "https://previews.123rf.com/images/pamela4578/pamela45781801/pamela4578180100154/93652659-abstract-backgrounds-with-customizable-space-to-add-your-writing.jpg",
+      "caption": "test2",
+      "id": 2
+    }
+  ]
 }
