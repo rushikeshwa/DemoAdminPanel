@@ -1,7 +1,17 @@
 <div class="container">
     <div class="row">
+        <!-- Alerts  -->
+       <div class="col-12">
+        <div class="alert alert-info alert-dismissible fade show" role="alert" *ngIf="alert">
+            <strong>Hello Admin</strong> You Image Slider Updated Successfully...!
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+       </div>
         <div class="card">
-            <form [formGroup]="addImage" (ngSubmit)="addImageCaptionForm()">
+            <!-- Form for Add New Image into slider -->
+            <form [formGroup]="addImage" (ngSubmit)="addImageCaptionForm()" *ngIf="addForm">
                 <div class="card-header text-center">
                     <h1 class="text-center"> Add Slider Images and Caption</h1>
                 </div>
@@ -19,38 +29,60 @@
                 </div>
                 <div class="card-footer text-center">
                     <button class="btn btn-primary mx-1" type="submit" [disabled]="!addImage.valid">Add Image</button>
-                    <button class="btn btn-primary mx-1" type="submit" (click)=" ngOnInit()">Show Image</button>
+                </div>
+            </form>
+            <!-- form for Update Existing Images -->
+            <form [formGroup]="updateImage" (ngSubmit)="updateImageCaptionForm()" *ngIf="updateForm">
+                <div class="card-header text-center">
+                    <h1 class="text-center"> Update Image and Caption</h1>
+                </div>
+                <div class="card-body">
+                    <div class="col-md-8 mx-auto">
+                        <div class="form-group">
+                            <label for="image">Images Path </label>
+                            <input type="text" class="form-control" formControlName="image">
+                        </div>
+                        <div class="form-group">
+                            <label for="caption">Image Caption</label>
+                            <textarea class="form-control" id="caption" rows="2" formControlName="caption"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer text-center">
+                    <button class="btn btn-primary mx-1" type="submit" [disabled]="!updateImage.valid">Update</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
+
+<!-- This Div display when There is No Image Found in server -->
 <div class="container-fluid  text-center" *ngIf="!imageArray?.length > 0">
-    <h1>No Images Plase Add Images</h1>
+    <h1>No Images Please Add Images</h1>
 </div>
 
-<div class="container-fluid main-div mt-5" *ngIf="imageArray?.length > 0">
-    <a class="edit operation-button" routerLink="/update-slider/{{imageArray[count].id}}">
+<!-- This Div display when There is an already  Image Found in server or when user add any images -->
+<div class="container-fluid main-div mb-5" *ngIf="imageArray?.length > 0">
+    <a class="edit operation-button" (click)="editImage(imageArray[count].id)">
         <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
     </a>
-    <a class="delete operation-button" (click)="deleteImage()">
+    <a class="delete operation-button" (click)="deleteImage(imageArray[count].id)">
         <i class="fa fa-trash-o" aria-hidden="true"></i>
     </a>
+
     <div class="buttons" *ngIf="imageArray?.length > 1">
         <button class="decreaseOne button" (click)="decreaseOne()" [ngClass]="{disabled :count===0}">
             <i class="fa fa-chevron-left" aria-hidden="true"></i>
         </button>
-        <div *ngFor="let img of imageArray">
-            <!-- {{img.img}} -->
-        </div>
-
+      
         <button class="increaseOne button" (click)="increaseOne()" [ngClass]="{disabled :count===lengthImage-1}">
             <i class="fa fa-chevron-right" aria-hidden="true"></i>
         </button>
     </div>
-    <!-- <div *ngFor="let img of imageArray; let i= index;"> 
-                <img class="imageArray" [src]="imageArray[i].img" alt="Images" >
-            </div> -->
-    <h1 class="myCaption">{{imageArray[count].caption}}</h1>
+
+    <!-- Displaying Image and Caption -->
+    <!-- <div class="heading "> -->
+        <h1 class="myCaption text-center">{{imageArray[count].caption}}</h1>
+    <!-- </div> -->
     <img class="imageArray" src="{{imageArray[count].image}}" alt="Images">
 </div>

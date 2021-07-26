@@ -12,10 +12,19 @@ export class ImageSliderService {
   getImages(){
     return this.http.get(this.url);
   }
-  getCurrentImages(id){
-    return this.http.get(`${this.url}/${id}`);
-  }
+  
   addImagesCaption(data){
     return this.http.post(this.url,data);
   }
+  deleteImage(id){
+    return this.http.delete(`${this.url}/${id}`)
+  }
+  updateImage(id,data){
+    return this.http.put(`${this.url}/${id}`,data);
+  }
+  
+  getCurrentImages(id){
+    return this.http.get(`${this.url}/${id}`);
+  }
 }
+
