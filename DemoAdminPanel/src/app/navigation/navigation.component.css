@@ -89,4 +89,10 @@
         font-size: 23px;
       }
 /* navigation bar Css End` */
-  
+.dropdown-menu{
+  background: transparent;
+}
+
+.dropdown-menu a{
+  background: transparent;
+}

@@ -1,14 +1,6 @@
 <div class="container">
     <div class="row">
-        <!-- Alerts  -->
-       <div class="col-12">
-        <div class="alert alert-info alert-dismissible fade show" role="alert" *ngIf="alert">
-            <strong>Hello Admin</strong> You Image Slider Updated Successfully...!
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-       </div>
+        
         <div class="card">
             <!-- Form for Add New Image into slider -->
             <form [formGroup]="addImage" (ngSubmit)="addImageCaptionForm()" *ngIf="addForm">
@@ -84,5 +76,5 @@
     <!-- <div class="heading "> -->
         <h1 class="myCaption text-center">{{imageArray[count].caption}}</h1>
     <!-- </div> -->
-    <img class="imageArray" src="{{imageArray[count].image}}" alt="Images">
+    <img class="imageArray"  src="{{imageArray[count].image}}" alt="No Image added.. " onerror="this.src='../../assets/img/Not-found-image.jpg';">
 </div>

@@ -1,50 +1,57 @@
 <!-- sidebar start here -->
 <ng-sidebar-container (onBackdropClicked)="_onBackdropClicked()">
   <ng-sidebar [(opened)]="_opened" [mode]="_MODES[_modeNum]" [keyClose]="_keyClose"
-    [position]="_POSITIONS[_positionNum]" 
-    
-    [autoCollapseHeight]="_autoCollapseHeight" [autoCollapseWidth]="_autoCollapseWidth"
-    [closeOnClickOutside]="_closeOnClickOutside" [closeOnClickBackdrop]="_closeOnClickBackdrop"
-    [showBackdrop]="_showBackdrop" [animate]="_animate" 
-    >
+    [position]="_POSITIONS[_positionNum]" [autoCollapseHeight]="_autoCollapseHeight"
+    [autoCollapseWidth]="_autoCollapseWidth" [closeOnClickOutside]="_closeOnClickOutside"
+    [closeOnClickBackdrop]="_closeOnClickBackdrop" [showBackdrop]="_showBackdrop" [animate]="_animate">
 
     <img class="logo" src="../../assets/img/rushi_logo-removebg-preview.png" alt="Logo"><br>
     <ul class="link-aside">
       <li><a routerLink="/employee">Employee</a></li>
       <li><a routerLink="/formbuilder">FormBuilder</a></li>
       <li><a routerLink="/image-slider">ImageSlider</a></li>
-      <li><a routerLink="/create-empkud">Create Emp_Kud</a></li>
-      <li><a routerLink="/list-empkud">List Emp_kud</a></li>
-    </ul>
+      <li class="nav-item dropdown">
+        <a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          MyWork
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" routerLink="/create-empkud">Create Emp_Kud</a>
+          <a class="dropdown-item" routerLink="/list-empkud">List Emp_kud</a>
+          <a class="dropdown-item" routerLink='/practice'>Practice</a>
 
+        </div>
+      </li>
+    </ul>
+    
   </ng-sidebar>
-<!-- sidebar ends here -->
+  <!-- sidebar ends here -->
 
   <div ng-sidebar-content>
-<!-- header content start -->
+    <!-- header content start -->
     <header class="demo-header">
       <button (click)="_toggleOpened()" class="demo-header__toggle">Toggle sidebar</button>
       <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="collapse navbar-collapse text-white" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto ">
             <li class="nav-item active">
-              
+
             </li>
-            
+
           </ul>
           <div class="form-inline my-2 my-lg-0">
             <button class="btn text-white my-2 my-sm-0" type="submit">
-              <i class="fa fa-user-circle-o " aria-hidden="true" ></i>
+              <i class="fa fa-user-circle-o " aria-hidden="true"></i>
             </button>
           </div>
-          
+
         </div>
       </nav>
     </header>
-<!-- header content start -->
+    <!-- header content start -->
 
     <section class="demo-contents">
-      
+
       <router-outlet></router-outlet>
 
     </section>

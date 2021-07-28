@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { FormbuilderComponent } from './formbuilder/formbuilder.component';
 import { HomeComponent } from './home/home.component';
 import { ImageSliderComponent } from './image-slider/image-slider.component';
+import { PracticeComponent } from './EmployeeKud/practice/practice.component';
+
 
 const routes: Routes = [
   { path: '', pathMatch: "full", redirectTo: 'home' },
@@ -10,6 +12,7 @@ const routes: Routes = [
   { path: 'employee', loadChildren: () => import('./employee/employee.module').then(m => m.EmployeeModule) },
   {path : 'formbuilder',component:FormbuilderComponent},
   {path: 'image-slider', component:ImageSliderComponent},  
+  {path:'practice', component:PracticeComponent}
 ];
 
 @NgModule({

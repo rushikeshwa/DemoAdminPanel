@@ -17,6 +17,8 @@ import { ListEmpComponent } from './EmployeeKud/list-emp/list-emp.component';
 import { CreateEmpComponent } from './EmployeeKud/create-emp/create-emp.component';
 import { ImageSliderComponent } from './image-slider/image-slider.component';
 import { AngularMaterialModule } from './angular-material/angular-material.module';
+import {ToastrModule} from 'ng6-toastr-notifications';
+import { PracticeComponent } from './EmployeeKud/practice/practice.component';
 
 
 const appRoutes:Routes=[
@@ -34,6 +36,7 @@ const appRoutes:Routes=[
     ListEmpComponent,
     CreateEmpComponent,
     ImageSliderComponent,
+    PracticeComponent,
 
   ],
   imports: [
@@ -47,7 +50,8 @@ const appRoutes:Routes=[
     FormsModule,
     SidebarModule.forRoot(),
     NgxPaginationModule,
-    AngularMaterialModule
+    AngularMaterialModule,
+    ToastrModule.forRoot()
 
   ],
   providers: [DatePipe],

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ImageSliderService } from '../shared/services/image-slider.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Routes, ActivatedRoute, Router} from '@angular/router';
+// import {ToastrService} from 'ngx-toastr';
+import { ToastrManager } from 'ng6-toastr-notifications';
 
 @Component({
   selector: 'app-image-slider',
@@ -10,7 +12,7 @@ import { Routes, ActivatedRoute, Router} from '@angular/router';
 })
 export class ImageSliderComponent implements OnInit {
 
-  constructor(private router:Router, private slider: ImageSliderService) { }
+  constructor(private router:Router, private slider: ImageSliderService, private tostr:ToastrManager) { }
   //Variable Declaration
   count = 0;
   imageArray: any;
@@ -19,7 +21,6 @@ export class ImageSliderComponent implements OnInit {
   addForm: boolean;
   updateForm: boolean;
   updateImageID: number;
-  alert:boolean=false;
 
   //Add New Image into slider  form
   addImage = new FormGroup({
@@ -62,7 +63,7 @@ export class ImageSliderComponent implements OnInit {
     this.updateImageID = id;
     this.updateForm = true;
     this.addForm = false;
-    this.alert=true;
+    this.tostr.warningToastr('Data Updated Successfully....!','Updated')
   }
 //  send Data to server for update image data
 updateImageCaptionForm(){
@@ -71,19 +72,18 @@ updateImageCaptionForm(){
   });
   this.updateImage.reset();
   this.test();
-  // window.location.reload()
- 
+ this.tostr.successToastr("Data Updated Successfully...!",'Updated');   
   this.updateForm=false;
 }
 
   // post API for Add new Images
   addImageCaptionForm() {
     this.slider.addImagesCaption(this.addImage.value).subscribe((result) => {
-      // console.log(result);
       this.addImage.reset();
       this.ngOnInit();
     });
-    this.alert=true;
+    this.tostr.successToastr('Image added successfully','Success');
+
   }
 
   // Delete API to delete Image and caption
@@ -91,14 +91,12 @@ updateImageCaptionForm(){
     this.slider.deleteImage(id).subscribe((result) => {
       // console.log(result);
     });
-
-    // this.ngOnInit();
     this.test();
-    this.alert=true;
     let currentUrl = this.router.url;
       this.router.routeReuseStrategy.shouldReuseRoute = () => false;
       this.router.onSameUrlNavigation = 'reload';
       this.router.navigate([currentUrl]);
+      this.tostr.errorToastr('Image Deleted Successfully...!','Delete');
   }
 
 

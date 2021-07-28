@@ -1,6 +1,6 @@
 .imageArray{
     width: 100%;
-    height: auto;
+    height: 700px;
     transition: 3s;
 }
 .main-div{
@@ -30,7 +30,6 @@ top: 50%;
 .increaseOne{
     right: 50px;
     top: 50%;
-
 }
 
 .operation-button{
@@ -53,20 +52,14 @@ top: 50%;
     right: 60px;
     top: 60px;
 }
- /* .heading{
-    position: relative;
-    justify-content: center;
-    align-items: center;
-} */
 
 .myCaption{
     position: relative;
     color: rgb(230, 228, 228);
     font-weight: 800;
-    
     justify-content: center;
     align-items: center;
-    bottom: -700px;
+    bottom: -600px;
 }
 .disabled:hover{font-size: 20px;}
 

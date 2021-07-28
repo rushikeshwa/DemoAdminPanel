@@ -1,0 +1,42 @@
+// Syntactically Awesome Stylesheet
+$primary-background: rgba(221, 226, 224, 0.527);
+$font-color:#fff;
+.container-fluid{
+    background-color: $primary-background;
+}
+
+
+.social-media{
+    display: flex;
+}
+  %social{
+      background: url('../../../assets/img/spriteIcons.png') no-repeat;
+      padding: 2px;  
+      margin: 5px;
+      width: 83px;
+      height:83px;
+      display: inline-block;
+      list-style-type: none;
+      color: $font-color;
+  }
+  .fb{
+      @extend %social;
+    background-position: 0  -83px;  
+  }
+  .dot{
+    @extend %social;
+    background-position: -84px -83px;  
+  }
+  .ball{
+    @extend %social;
+    background-position: -168px -83px;  
+  }
+  .google{
+    @extend %social;
+    background-position: -251px -83px;  
+  }
+  .in{
+    @extend %social;
+    background-position: -336px -83px;  
+  }
+  

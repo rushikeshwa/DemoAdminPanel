@@ -1,0 +1,24 @@
+
+Eliminate render-blocking resources
+
+ Remove unused code
+
+ <noscript><link  rel="stylesheet" href=""></noscript>
+
+ rel="preload" as="style"
+
+ <link rel="preload" href="style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="style.css">
+    </noscript>
+    AMP Optimizer 
+    ===================
+
+    Remove unused CSS
+
+    render tree
+====================
+    Does not use HTTP/2 for all of its resources
+
+    ===========
+    Remove unused JavaScript
