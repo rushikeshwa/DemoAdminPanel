@@ -1,0 +1,71 @@
+<div class="container">
+    <div class="row text-center">
+        <h2 class="text-center">Order Book</h2>
+        <table class="table border">
+            <thead>
+                <td>No.</td>
+                <td>OrderType</td>
+                <td>Price</td>
+                <td>Volume</td>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="4" class="bg-info"> <strong> Buy Order Data</strong></td>
+                </tr>
+                <tr *ngFor="let order of MyBuyOrder; let i=index">
+                    <td>{{i}}</td>
+                    <td>{{order.OrderType}}</td>
+                    <td>{{order.Price}}</td>
+                    <td>{{order.Volume}}</td>
+                </tr>
+                <tr>
+                    <td colspan="4"> <strong>Date :</strong> {{timeStamp | date: 'fullDate'}} <strong>Time : </strong>
+                        {{timeStamp | date: 'shortTime'}}</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td colspan="4" class="bg-info"> <strong>Sell Order Data</strong></td>
+                </tr>
+                <tr *ngFor="let order of MySellOrder; let i=index">
+                    <td>{{i}}</td>
+                    <td>{{order.OrderType}}</td>
+                    <td>{{order.Price}}</td>
+                    <td>{{order.Volume}}</td>
+                </tr>
+            </tbody>
+
+        </table>
+        <div class="card" style="width: 100%;">
+            <div class="card-header">
+                <h2>Object of Objects</h2>
+                <h4><strong>Status : </strong>{{status}}</h4>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-4 border">
+                        <h5>BTC</h5>
+
+                        <div *ngFor="let btc of leatestBtc | keyvalue; let i=index">
+                            <li><strong> {{btc.key | uppercase}} : </strong>{{btc.value}}</li>
+                        </div>
+                    </div>
+                    <div class="col-4 border">
+                        <h5>LTC</h5>
+
+                        <div *ngFor="let ltc of leatestLtc | keyvalue; let i=index">
+                            <li><strong> {{ltc.key | uppercase}} : </strong>{{ltc.value}}</li>
+                        </div>
+                    </div>
+                    <div class="col-4 border">
+                        <h5>Doge</h5>
+
+                        <div *ngFor="let doge of leatestDoge | keyvalue; let i=index">
+                            <li><strong> {{doge.key | uppercase}} : </strong>{{doge.value}}</li>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

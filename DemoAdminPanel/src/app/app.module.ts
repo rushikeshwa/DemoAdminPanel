@@ -19,11 +19,14 @@ import { ImageSliderComponent } from './image-slider/image-slider.component';
 import { AngularMaterialModule } from './angular-material/angular-material.module';
 import {ToastrModule} from 'ng6-toastr-notifications';
 import { PracticeComponent } from './EmployeeKud/practice/practice.component';
+import { ObservablesComponent } from './EmployeeKud/observables/observables.component';
 
 
 const appRoutes:Routes=[
   {path:'list-empkud',component:ListEmpComponent},
   {path:'create-empkud',component:CreateEmpComponent},
+  {path:'practice', component:PracticeComponent},
+  {path:'observables', component:ObservablesComponent},
   {path:'',redirectTo:'/list-empkud' , pathMatch:'full'}
 
 ]
@@ -37,6 +40,7 @@ const appRoutes:Routes=[
     CreateEmpComponent,
     ImageSliderComponent,
     PracticeComponent,
+    ObservablesComponent,
 
   ],
   imports: [
