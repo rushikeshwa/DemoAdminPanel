@@ -10,6 +10,7 @@ const routes: Routes = [
   { path: '', pathMatch: "full", redirectTo: 'home' },
   {path:'', component:HomeComponent},
   { path: 'employee', loadChildren: () => import('./employee/employee.module').then(m => m.EmployeeModule) },
+  { path: 'observable', loadChildren: () => import('./observable/observable-module.module').then(m => m.ObservableModuleModule) },
   {path : 'formbuilder',component:FormbuilderComponent},
   {path: 'image-slider', component:ImageSliderComponent},  
 ];

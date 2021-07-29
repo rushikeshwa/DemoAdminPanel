@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ServicesapitestService } from 'src/app/shared/servicesapitest.service';
-import { observable, Observable } from 'rxjs';
-import { OrderBook } from 'src/app/shared/models/aptTestModels';
+import { apitestService } from 'src/app/shared/apitest.service';
+import { OrderBook, MyDataType,LatestPricesObject  } from 'src/app/shared/models/aptTestModels';
+
 
 
 @Component({
@@ -14,20 +14,25 @@ export class ObservablesComponent implements OnInit {
 
   MyBuyOrder:any;
   MySellOrder:any;
-  leatestBtc:any;
-  leatestLtc:any;
-  leatestDoge:any;
+  leatestBtc:{};
+  leatestLtc:{};
+  leatestDoge:{};
   timeStamp;
   status;
+  subscribeUserMyData:MyDataType[]=[];
 
   ngOnInit(){
+  }
+  constructor(private http:HttpClient, private api:apitestService) { 
+   this.getMyDataType();
+   
   //  this.getLanguages(); 
   //  this.getStudent();
    this.getOrderBook();
    this.getRates();
    this.getLeatestPrice();
+
   }
-  constructor(private http:HttpClient, private api:ServicesapitestService) { }
 
   getLanguages(){
     this.api.getLanguages().subscribe((data)=>{
@@ -66,5 +71,11 @@ export class ObservablesComponent implements OnInit {
       console.log(leatestPrice.prices.ltc);
       console.log(leatestPrice.prices.doge);
     });
+  }
+  getMyDataType(){
+    this.api.getMyDataType().subscribe((myData)=>{
+      this.subscribeUserMyData=myData;
+      console.log(myData);
+    })
   }
 }

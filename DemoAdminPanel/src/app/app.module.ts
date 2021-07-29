@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http'; 
-import { NavigationComponent } from './navigation/navigation.component';
+import { NavigationComponent } from './home/navigation/navigation.component';
 import { HomeComponent } from './home/home.component';
 
 import { SidebarModule } from 'ng-sidebar';
@@ -19,14 +19,11 @@ import { ImageSliderComponent } from './image-slider/image-slider.component';
 import { AngularMaterialModule } from './angular-material/angular-material.module';
 import {ToastrModule} from 'ng6-toastr-notifications';
 import { PracticeComponent } from './EmployeeKud/practice/practice.component';
-import { ObservablesComponent } from './EmployeeKud/observables/observables.component';
-
 
 const appRoutes:Routes=[
   {path:'list-empkud',component:ListEmpComponent},
   {path:'create-empkud',component:CreateEmpComponent},
   {path:'practice', component:PracticeComponent},
-  {path:'observables', component:ObservablesComponent},
   {path:'',redirectTo:'/list-empkud' , pathMatch:'full'}
 
 ]
@@ -40,8 +37,6 @@ const appRoutes:Routes=[
     CreateEmpComponent,
     ImageSliderComponent,
     PracticeComponent,
-    ObservablesComponent,
-
   ],
   imports: [
     BrowserModule,

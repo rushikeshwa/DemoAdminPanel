@@ -1,4 +1,20 @@
 {
+  "laptop": [
+    {
+      "brand": "Dell",
+      "hardDisk": "1TB",
+      "color": "Black",
+      "screenSize": "14",
+      "price": "30000"
+    },
+    {
+      "brand": "HP",
+      "hardDisk": "500GB",
+      "color": "Silver",
+      "screenSize": "16",
+      "price": "36000"
+    }
+  ],
   "employee": [
     {
       "dept": "Testing",

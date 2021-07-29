@@ -26,7 +26,7 @@ interface RatesObject{
 
 export interface Rates extends Array<RatesObject>{}
 
-interface LatestPricesObject {
+export interface LatestPricesObject {
   status:string;
   prices:{
     btc:{
@@ -44,7 +44,21 @@ interface LatestPricesObject {
       ask:string,
       last:string
     }
-  };
+  },
 }
 
-export interface LatestPrices extends LatestPricesObject{}
+// export interface LatestPrices extends LatestPricesObject{}
+
+
+export class MyDataType{
+  public id:number;
+  public data:string;
+}
+
+export interface Laptop{
+  brand:string;
+  hardDisk:string;
+  color:string;
+  screenSize:number;
+  price:number
+}
