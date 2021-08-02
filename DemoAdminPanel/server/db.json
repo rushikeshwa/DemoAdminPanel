@@ -1,20 +1,27 @@
 {
-  "laptop": [
-    {
+  "laptop": {
+   "Dell":[ {
       "brand": "Dell",
       "hardDisk": "1TB",
       "color": "Black",
       "screenSize": "14",
       "price": "30000"
-    },
-    {
+    }],
+   "HP":[ {
       "brand": "HP",
       "hardDisk": "500GB",
       "color": "Silver",
       "screenSize": "16",
       "price": "36000"
-    }
-  ],
+    }],
+    "NotAvailable":[ {
+       "brand": "Not Available",
+       "hardDisk": "Not Available",
+       "color": "Not Available",
+       "screenSize": "0",
+       "price": "0"
+     }]
+  },
   "employee": [
     {
       "dept": "Testing",
@@ -125,6 +132,7 @@
     "phone": "123456",
     "age": "21"
   },
+  
   "orderbook": {
     "BuyOrders": [
       {

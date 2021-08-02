@@ -39,7 +39,6 @@ export class apitestService {
     return this.httpClient.get<LatestPricesObject>(this.latestprices);
   }
 
-
   getMyDataType():Observable<MyDataType[]>
   {
     let data= new Observable<MyDataType[]>(observer =>
@@ -51,8 +50,8 @@ export class apitestService {
     });
     return data;
   }
-
-  getLaptop():Observable<Laptop[]>{
-    return this.httpClient.get<Laptop[]>(this.laptop);
+  getLaptop():Observable<Laptop>{
+    return this.httpClient.get<Laptop>(this.laptop);
   }
+
 }

@@ -1,4 +1,11 @@
-<p>Promises-observable works!</p>
+<h2>Promises works!</h2>
 
-<button mat-raised-button>click me</button>
-<h4>{{promiseValue}}</h4>
+<button class="mb-3" mat-raised-button (click)="promisesWork()" >Get Laptop</button>
+    <p *ngIf="LaptopHide" >Wait For Few Seconds</p>
+    <ul *ngFor="let laptop of promiseValue | keyvalue">
+        <li> <strong>{{laptop.key}}</strong> : {{laptop.value}}</li>
+    </ul>
+
+
+<h2>Async/Await works!</h2>
+<app-location></app-location>

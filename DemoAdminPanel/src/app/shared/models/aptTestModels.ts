@@ -10,7 +10,7 @@ export interface OrderBook {
     Price: number,
     Volume: number
   }>;
-  CreatedTimestampUtc :string;
+  CreatedTimestampUtc: string;
   SellOrders: Array<{
     OrderType: string,
     Price: number,
@@ -18,31 +18,32 @@ export interface OrderBook {
   }>;
 }
 
-interface RatesObject{
-  CurrencyCodeA:string,
-  CurrencyCodeB:string,
-  Rate:number
+
+interface RatesObject {
+  CurrencyCodeA: string,
+  CurrencyCodeB: string,
+  Rate: number
 }
 
-export interface Rates extends Array<RatesObject>{}
+export interface Rates extends Array<RatesObject> { }
 
 export interface LatestPricesObject {
-  status:string;
-  prices:{
-    btc:{
-      bid:string,
-      ask:string,
-      last:string
+  status: string;
+  prices: {
+    btc: {
+      bid: string,
+      ask: string,
+      last: string
     },
-    ltc:{
-      bid:string,
-      ask:string,
-      last:string
+    ltc: {
+      bid: string,
+      ask: string,
+      last: string
     },
-    doge:{
-      bid:string,
-      ask:string,
-      last:string
+    doge: {
+      bid: string,
+      ask: string,
+      last: string
     }
   },
 }
@@ -50,15 +51,31 @@ export interface LatestPricesObject {
 // export interface LatestPrices extends LatestPricesObject{}
 
 
-export class MyDataType{
-  public id:number;
-  public data:string;
+export class MyDataType {
+  public id: number;
+  public data: string;
 }
 
-export interface Laptop{
-  brand:string;
-  hardDisk:string;
-  color:string;
-  screenSize:number;
-  price:number
+export interface Laptop {
+  Dell: Array<{
+    brand: string;
+    hardDisk: string;
+    color: string;
+    screenSize: number;
+    price: number;
+  }>;
+  HP: Array<{
+    brand: string;
+    hardDisk: string;
+    color: string;
+    screenSize: number;
+    price: number;
+  }>;
+  NotAvailable: Array<{
+    brand: string;
+    hardDisk: string;
+    color: string;
+    screenSize: number;
+    price: number;
+  }>;
 }
